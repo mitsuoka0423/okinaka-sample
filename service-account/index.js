@@ -17,7 +17,7 @@ async function main() {
   const fileMetadata = {
     //nameはDriveに保存する時のファイル名になります
     name: `photo.jpg`,
-    parents: ["1dv-PPg_hZV84jduP0C-e0xG7I-YVYD7I"],
+    parents: ["<アップロードしたいフォルダのID>"],
   };
   const media = {
     mimeType: "image/jpeg",

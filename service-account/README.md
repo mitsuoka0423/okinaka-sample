@@ -21,6 +21,18 @@
 2. ファイル名を`privatekey.json`に変更する。
 3. `privatekey.json`を`service-account`フォルダ直下にコピーする。
 
+### サービスアカウントにGoogleドライブのフォルダを共有する
+
+Googleドライブでフォルダを作成し、サービスアカウントと共有する。
+
+[![Image from Gyazo](https://i.gyazo.com/4329509670015288ffb382f30c3767a3.png)](https://gyazo.com/4329509670015288ffb382f30c3767a3)
+
+[![Image from Gyazo](https://i.gyazo.com/5545e4b7abc1fcab178856725ccbac41.png)](https://gyazo.com/5545e4b7abc1fcab178856725ccbac41)
+
+こんな感じになっていればOK。
+
+[![Image from Gyazo](https://i.gyazo.com/486b2c0d205fa9a879d5730ca18adaf5.png)](https://gyazo.com/486b2c0d205fa9a879d5730ca18adaf5)
+
 ## インストール
 
 ```bash
