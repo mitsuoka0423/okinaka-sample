@@ -20,7 +20,10 @@ const readline = require('readline');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/drive.metadata.readonly'];
+const SCOPES = [
+  'https://www.googleapis.com/auth/drive.metadata.readonly',
+  'https://www.googleapis.com/auth/drive',
+];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
@@ -30,7 +33,8 @@ const TOKEN_PATH = 'token.json';
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   // Authorize a client with credentials, then call the Google Drive API.
-  authorize(JSON.parse(content), listFiles);
+  authorize(JSON.parse(content), uploadFiles);
+  // authorize(JSON.parse(content), listFiles);
 });
 
 /**
@@ -40,7 +44,7 @@ fs.readFile('credentials.json', (err, content) => {
  * @param {function} callback The callback to call with the authorized client.
  */
 function authorize(credentials, callback) {
-  const {client_secret, client_id, redirect_uris} = credentials.installed;
+  const {client_secret, client_id, redirect_uris} = credentials.web;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
 
@@ -106,6 +110,29 @@ function listFiles(auth) {
   });
 }
 // [END drive_quickstart]
+
+function uploadFiles(auth) {
+  const drive = google.drive({version: 'v3', auth});
+  const fileMetadata = {
+    'name': 'Lenna.jpg'
+  };
+  const media = {
+    mimeType: 'image/jpeg',
+    body: fs.createReadStream('./Lenna.jpg')
+  };
+  drive.files.create({
+    resource: fileMetadata,
+    media: media,
+    fields: 'id'
+  }, function (err, file) {
+    if (err) {
+      // Handle error
+      console.error(err);
+    } else {
+      console.log('File Id: ', file.id);
+    }
+  });
+}
 
 module.exports = {
   SCOPES,
