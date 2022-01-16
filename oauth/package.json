@@ -28,7 +28,7 @@
     "extend": "^3.0.2",
     "fast-text-encoding": "^1.0.3",
     "file-type": "^15.0.1",
-    "follow-redirects": "^1.14.6",
+    "follow-redirects": "^1.14.7",
     "form-data": "^3.0.1",
     "function-bind": "^1.1.1",
     "gaxios": "^1.8.4",
