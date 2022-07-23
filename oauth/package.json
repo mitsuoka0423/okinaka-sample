@@ -27,7 +27,7 @@
     "event-target-shim": "^5.0.1",
     "extend": "^3.0.2",
     "fast-text-encoding": "^1.0.3",
-    "file-type": "^15.0.1",
+    "file-type": "^16.5.4",
     "follow-redirects": "^1.14.6",
     "form-data": "^3.0.1",
     "function-bind": "^1.1.1",
